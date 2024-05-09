@@ -1,35 +1,31 @@
 package com.clickkart.identityms.dao;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.Date;
 
-
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "user")
-public class User {
+public class User extends AbstractBaseEntity{
 
     @Id
-    @Column(name = "userid")
+    @Column(name = "userkey",unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  long userId;
+    private long id;
 
-    @Column(name = "username")
+    @Column(name = "username",nullable = false)
     private String userName;
 
-    @Column(name = "email")
+    @Column(name = "email",nullable = false)
     private String email;
 
     @Column(name = "password")
     private String password;
-
-    @Column(name = "createdon")
-    private Date creationDate;
-
-    @Column(name = "lastmodified")
-    private Date lastModifiedOn;
 
 
 }
