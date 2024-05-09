@@ -38,6 +38,6 @@ public class UserRegistryService {
     public void validateUserRegistration(UserRegister userRegister){
         List<User> user = userRepository.findByEmail(userRegister.getEmail());
         if(!user.isEmpty())
-            throw new BadRequestException(ErrorConstants.UserAlreadyExitsWithEmail);
+            throw new BadRequestException(ErrorConstants.USERALREADYEXITSWITHEMAIL);
     }
 }
